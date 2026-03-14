@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: DevOps Pipeline
 
 on: [push]
 
@@ -8,4 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: echo "DevOps pipeline funcionando"
+
+      - name: Build Docker
+        run: docker build -t devops-app .
+
+      - name: Teste
+        run: echo "Pipeline funcionando"
